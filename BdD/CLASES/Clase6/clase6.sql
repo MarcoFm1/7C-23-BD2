@@ -21,3 +21,6 @@ SELECT a.first_name, a.actor_id FROM actor a JOIN film_actor fa ON a.actor_id = 
 
 /*List all the actors that didn't work in 'BETRAYED REAR' or 'CATCH AMISTAD'*/
 SELECT a.first_name, a.actor_id FROM actor a JOIN film_actor fa ON a.actor_id = fa.actor_id JOIN film f ON f.film_id = fa.film_id WHERE a.actor_id NOT IN (SELECT a2.actor_id FROM actor a2 JOIN film_actor fa2 ON a2.actor_id = fa2.actor_id JOIN film f2 ON f2.film_id = fa2.film_id WHERE f2.title = 'BETRAYED REAR' or f2.title = 'CATCH AMISTAD' group by a.actor_id ) group by a.actor_id;
+
+
+
